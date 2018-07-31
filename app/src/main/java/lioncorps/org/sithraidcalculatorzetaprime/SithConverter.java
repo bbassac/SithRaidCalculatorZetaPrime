@@ -58,6 +58,9 @@ public class SithConverter extends AppCompatActivity {
 
                 }catch(Exception e){
                     percentP1.setText("");
+                    percentP2.setText("");
+                    percentP3.setText("");
+                    percentP4.setText("");
                 }
             }
         });
@@ -89,6 +92,10 @@ public class SithConverter extends AppCompatActivity {
 
                 }catch(Exception e){
                     damageP1.setText("");
+                    damageP2.setText("");
+                    damageP3.setText("");
+                    damageP4.setText("");
+
                 }
             }
         });
