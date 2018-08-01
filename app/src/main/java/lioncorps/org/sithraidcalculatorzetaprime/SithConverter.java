@@ -1,10 +1,12 @@
 package lioncorps.org.sithraidcalculatorzetaprime;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -31,42 +33,23 @@ public class SithConverter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sith_converter);
-        EditText dmgP1 = findViewById(R.id.editText2);
-        dmgP1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                // TODO Auto-generated method stub
-            }
+        configureHPText();
+        configureDmgTextEdit();
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // TODO Auto-generated method stub
-            }
+        configurePercentTextEdit();
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                TextView percentP1 = findViewById(R.id.textView6);
-                TextView percentP2 = findViewById(R.id.textView28);
-                TextView percentP3 = findViewById(R.id.textView42);
-                TextView percentP4 = findViewById(R.id.textView49);
 
-                try {
-                    percentP1.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P1));
-                    percentP2.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P2));
-                    percentP3.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P3));
-                    percentP4.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P4));
+    }
 
-                }catch(Exception e){
-                    percentP1.setText("");
-                    percentP2.setText("");
-                    percentP3.setText("");
-                    percentP4.setText("");
-                }
-            }
-        });
+    private void configureHPText() {
+        this.<TextView>findViewById(R.id.textView3).setText(formatter.format(HP_P1));
+        this.<TextView>findViewById(R.id.textView26).setText(formatter.format(HP_P2));
+        this.<TextView>findViewById(R.id.textView40).setText(formatter.format(HP_P3));
+        this.<TextView>findViewById(R.id.textView47).setText(formatter.format(HP_P4));
+    }
 
-        EditText percentP1 = findViewById(R.id.editText4);
-        percentP1.addTextChangedListener(new TextWatcher() {
+    private void configurePercentTextEdit() {
+        this.<EditText>findViewById(R.id.editText4).addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
                 // TODO Auto-generated method stub
@@ -99,7 +82,40 @@ public class SithConverter extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private void configureDmgTextEdit() {
+        this.<EditText>findViewById(R.id.editText2).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
 
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                TextView percentP1 = findViewById(R.id.textView6);
+                TextView percentP2 = findViewById(R.id.textView28);
+                TextView percentP3 = findViewById(R.id.textView42);
+                TextView percentP4 = findViewById(R.id.textView49);
+
+                try {
+                    percentP1.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P1));
+                    percentP2.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P2));
+                    percentP3.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P3));
+                    percentP4.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P4));
+
+                }catch(Exception e){
+                    percentP1.setText("");
+                    percentP2.setText("");
+                    percentP3.setText("");
+                    percentP4.setText("");
+                }
+            }
+        });
     }
 }
