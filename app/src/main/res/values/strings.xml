@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Sith Raid Calculator</string>
+    <string name="p4Label">P4 :</string>
+    <string name="emptyHP">__________</string>
+    <string name="emptyPercent">__</string>
+    <string name="emptyDamages">___ ___ ___</string>
+    <string name="hp">Hp</string>
+    <string name="dmg">Dmg</string>
+    <string name="p1Label">P1 :</string>
+    <string name="percent">%</string>
+    <string name="nihilus">nihilus</string>
+    <string name="sion">sion</string>
+    <string name="traya">traya</string>
+    <string name="triumvirat">triumvirat</string>
+    <string name="p3Label">P3 :</string>
+    <string name="p2Label">P2 :</string>
+    <string name="enter_damage_number"> </string>
+    <string name="enter_percent_number"> </string>
 </resources>

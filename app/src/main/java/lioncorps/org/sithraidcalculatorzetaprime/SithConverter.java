@@ -20,7 +20,8 @@ public class SithConverter extends AppCompatActivity {
     public static final int HP_P3 = 38371455;
     public static final int HP_P4 = 34499444;
 
-    DecimalFormat formatter = new DecimalFormat("###,###.###");
+    DecimalFormat formatter = new DecimalFormat("###,###");
+    DecimalFormat formatterPercent = new DecimalFormat("###,###.#");
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,10 +75,10 @@ public class SithConverter extends AppCompatActivity {
                     damageP4.setText(formatter.format(Double.parseDouble(s.toString()) *HP_P4 / 100));
 
                 }catch(Exception e){
-                    damageP1.setText("");
-                    damageP2.setText("");
-                    damageP3.setText("");
-                    damageP4.setText("");
+                    damageP1.setText(R.string.emptyDamages);
+                    damageP2.setText(R.string.emptyDamages);
+                    damageP3.setText(R.string.emptyDamages);
+                    damageP4.setText(R.string.emptyDamages);
 
                 }
             }
@@ -104,16 +105,16 @@ public class SithConverter extends AppCompatActivity {
                 TextView percentP4 = findViewById(R.id.textView49);
 
                 try {
-                    percentP1.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P1));
-                    percentP2.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P2));
-                    percentP3.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P3));
-                    percentP4.setText(formatter.format(Double.parseDouble(s.toString()) * 100 / HP_P4));
+                    percentP1.setText(formatterPercent.format(Double.parseDouble(s.toString()) * 100 / HP_P1));
+                    percentP2.setText(formatterPercent.format(Double.parseDouble(s.toString()) * 100 / HP_P2));
+                    percentP3.setText(formatterPercent.format(Double.parseDouble(s.toString()) * 100 / HP_P3));
+                    percentP4.setText(formatterPercent.format(Double.parseDouble(s.toString()) * 100 / HP_P4));
 
                 }catch(Exception e){
-                    percentP1.setText("");
-                    percentP2.setText("");
-                    percentP3.setText("");
-                    percentP4.setText("");
+                    percentP1.setText(R.string.emptyPercent);
+                    percentP2.setText(R.string.emptyPercent);
+                    percentP3.setText(R.string.emptyPercent);
+                    percentP4.setText(R.string.emptyPercent);
                 }
             }
         });
