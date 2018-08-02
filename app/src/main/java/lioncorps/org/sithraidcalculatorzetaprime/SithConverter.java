@@ -1,11 +1,14 @@
 package lioncorps.org.sithraidcalculatorzetaprime;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +22,7 @@ public class SithConverter extends AppCompatActivity {
     public static final int HP_P2 = 52105858;
     public static final int HP_P3 = 38371455;
     public static final int HP_P4 = 34499444;
+    public static final String PRIME_URL = "https://swgoh.gg/g/40297/hexagone-zeta-prime/";
 
     DecimalFormat formatter = new DecimalFormat("###,###");
     DecimalFormat formatterPercent = new DecimalFormat("###,###.#");
@@ -28,6 +32,22 @@ public class SithConverter extends AppCompatActivity {
         //ajoute les entrées de menu_test à l'ActionBar
         getMenuInflater().inflate(R.menu.menu_items, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+
+            case R.id.image_prime:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIME_URL)));
+                return true;
+            case R.id.image_hexagone:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

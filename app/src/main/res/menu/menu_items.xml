@@ -3,15 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_save"
-        android:enabled="false"
+        android:id="@+id/image_prime"
         android:icon="@drawable/prime"
         android:title=""
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_delete"
+        android:id="@+id/image_hexagone"
         android:icon="@drawable/hexagone"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="" />
 </menu>
